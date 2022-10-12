@@ -29,7 +29,7 @@
       document.body.appendChild(el)
     });
     function click(e) {
-      if(Math.floor(spaceID()/3) == Math.floor(childID(e)/3 || spaceID()%3 == childID(e)%3) && (Math.abs(spaceID() - childID(e)) == 1 || Math.abs(spaceID() - childID(e)) == 3)) {
+      if(/*Math.floor(spaceID()/3) == Math.floor(childID(e)/3 || spaceID()%3 == childID(e)%3) &&*/(Math.abs(spaceID() - childID(e)) == 1 || Math.abs(spaceID() - childID(e)) == 3)) {
         e.innerHTML = [document.body.children[spaceID()].innerHTML, document.body.children[spaceID()].innerHTML = e.innerHTML][0];
       }
     }
