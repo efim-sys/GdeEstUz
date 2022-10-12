@@ -12,7 +12,7 @@
       font-size: 10vw;
       margin: 0;
       text-align: center;
-      padding-top: 2vw; 
+      padding-top: 2vw;
     }
     pre:active {
       color: green;
@@ -22,8 +22,6 @@
 </head>
 <body>
   <script>
-    let flag = false
-    let b
     ["Г", "Д", "Е", "Е", "С", "Т", "Ж", "У", ""].forEach((e) => {
       let el = document.createElement("pre")
       el.innerHTML = e
@@ -31,12 +29,17 @@
       document.body.appendChild(el)
     });
     function click(e) {
-      if(!flag) b = e
-      else if((e.innerHTML == "" || b.innerHTML == "") && (Math.abs(childID(e) - childID(b)) == 1 || Math.abs(childID(e) - childID(b)) == 3)) [e.innerHTML, b.innerHTML] = [b.innerHTML, e.innerHTML]
-      flag = !flag
+      if(Math.abs(spaceID() - childID(e)) == 1 || Math.abs(spaceID() - childID(e)) == 3) {
+        e.innerHTML = [document.body.children[spaceID()].innerHTML, document.body.children[spaceID()].innerHTML = e.innerHTML][0];
+      }
     }
     function childID(e) {
       return Array.from(document.body.children).indexOf(e)
+    }
+    function spaceID() {
+      let k
+      Array.from(document.body.children).forEach((e, i) => {if(e.innerHTML == "") k = i})
+      return k
     }
   </script>
 </body>
